@@ -1,10 +1,10 @@
-=== WP Fire Seller by FireFly ===
-Contributors: http://fireflytechnologies.com, http://firefly-app.com
-Donate link: http://fireflytechnologies.com/donate
-Tags: wp-fireseller, FireFly, fireseller, fire seller, fire fly, fireflytechnologies.com, Calicotek, CaliCoTek, calicotek, amazon, etsy, facebook, twitter, social feed, api, integration, ecommerce, e-commerce Rss, Ebay Sellers, Selling Tools, Auction Management, wordpress ebay.
+=== WP Fire Seller by CaliCoTek ===
+Contributors: http://calicotek.com, http://calicotek.com/fireseller, http://wp-fireseller.com
+Donate link: http://calicotek.com/donate
+Tags: wp-fireseller, CaliCoTek, fireseller, fire seller, cct-fireseller, calicotek.com, CaliCoTek, calicotek, amazon, etsy, facebook, twitter, social feed, api, integration, ecommerce, e-commerce Rss, Ebay Sellers, Selling Tools, Auction Management, wordpress ebay.
 Requires at least: 3.3
-Tested up to: 3.5.2
-Stable tag: 1.0.8
+Tested up to: 3.6
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,8 +52,6 @@ As soon as we get a free version with some nice features and working we will sta
 == Frequently asked questions ==
 
 = Does this plugin interfere with other plugins? =
-Versions below 1.8.0 had some issues with taking over menus for other plugins but it's no longer an issue.
-
 No issues or errors Reported yet.
 
 == Screenshots ==
@@ -65,6 +63,11 @@ No issues or errors Reported yet.
 
 == Changelog ==
 
+= 1.0.9 =
+* Updated info for calicotek and removed firefly associations
+* Updated Ebay Dash widget
+* Added more dashpage info 
+* added java script to plugin to remove the js linking and use standalone not finished yet.
 = 1.0.8 =
 * added fireseller notifications box ... this will contain fireseller plugin news updates.
 * added ebay and etsy rss full frame to dashpage.
