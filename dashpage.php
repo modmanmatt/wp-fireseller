@@ -1,8 +1,19 @@
 <div class='wrap'> <!-- Start Wrapper -->
   <div id="icon-tools" class="icon32"> <!-- insert main wp Tools icon --></div>
-  <h2>WP FireSeller Tools Page <a float=right>VERSION <?php echo WPFIRESELLER_VERSION; ?></a><a href="http://FireFlyTechnologies.com"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/cctlogo.png" height="30px" align="right"/><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right"/></a></h2>
+  <h2>WP FireSeller Tools Page <a float=right>VERSION <?php echo WPFIRESELLER_VERSION; ?></a><a href="http://CALICOTEK.com"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/cctlogo.png" height="30px" align="right"/><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right"/></a></h2>
   <hr/>
   
+   <table>
+	 <tr>
+	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Ebay Tools"/></a></td>
+	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Ebay Tools"/></a></td>
+	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Ebay Tools"/></a></td>
+	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Ebay Tools"/></a></td>
+	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Ebay Tools"/></a></td>
+	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Ebay Tools"/></a></td>
+ 	 </tr>
+   </table>
+  <hr />
   <table><tr>
     <td>
       <div class="widget" style="width:200px; height:300px;"> 

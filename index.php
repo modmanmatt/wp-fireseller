@@ -1,17 +1,17 @@
 <?php
 /*
 Plugin Name: WP-FireSeller
-Plugin URI: http://fireflytechnologies.com/wp-fireseller
+Plugin URI: http://calicotek.com/wp-fireseller
 Description: This plugin Adds an Ecommerce Multi Platform Product Feed and Management System... Sell on all ecommerce auction and social selling platforms all from 1 place your wp site :) This is a beta.
-Version: 1.0.8
-Author: fireflytechnologies, FireFlyTechnologies.com
-Author URI: http://fireflytechnologies.com/
+Version: 1.0.9
+Author: calicotek, calicotek.com
+Author URI: http://calicotek.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 // Version Definition should be same as above
-define('WPFIRESELLER_VERSION', '1.0.8' );
+define('WPFIRESELLER_VERSION', '1.0.9' );
 
 // For debugging purposes
 //error_reporting(E_ALL);
