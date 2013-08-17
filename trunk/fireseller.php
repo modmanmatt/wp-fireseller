@@ -3,7 +3,7 @@
 Plugin Name: WP-FireSeller
 Plugin URI: http://calicotek.com/wp-fireseller
 Description: This plugin Adds an Ecommerce Multi Platform Product Feed and Management System... Sell on all ecommerce auction and social selling platforms all from 1 place your wp site :) This is a beta.
-Version: 1.0.9
+Version: 1.1.0
 Author: calicotek, calicotek.com
 Author URI: http://calicotek.com/
 License: GPLv2 or later
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 // Version Definition should be same as above
-define('WPFIRESELLER_VERSION', '1.0.9' );
+define('WPFIRESELLER_VERSION', '1.1.0' );
 
 // For debugging purposes
 //error_reporting(E_ALL);
@@ -38,7 +38,7 @@ register_uninstall_hook(__FILE__, 'wp_fireseller_delete_plugin_options');  // cl
 add_action('admin_init', 'wp_fireseller_init' );
 add_action('admin_menu', 'wp_fireseller_add_options_page'); // Register options Page
 add_filter( 'plugin_action_links', 'wp_fireseller_plugin_action_links', 10, 2 ); // adds setting link to plugin installer page
-add_action( 'admin_menu', 'register_wp_fireseller_dash_menu_page' ); // register dash menu and page action
+add_action( 'admin_menu', 'register_wp_fireseller_pages' ); // register dash menu and page action
 
 // Delete options table entries ONLY when plugin deactivated AND deleted
 function wp_fireseller_delete_plugin_options() {
@@ -52,7 +52,7 @@ function wp_fireseller_add_defaults() {
 		delete_option('wp_fireseller_options'); // so we don't have to reset all the 'off' checkboxes too! (don't think this is needed but leave for now)
 		$arr = array(
 			'widget_title' => __('WP FireSeller Tools', 'wp_fireseller'),
-			'feed_url' => 'http://announcements.ebay.com/feed/',
+			'feed_url' => 'http://calicotek.com/category/calicotek_news_feed/calicotek_members_news_feed/feed/',
 			'drp_select_box' => '5',
 			'chk_default_options_db' => ''
 		);
@@ -72,13 +72,13 @@ function wp_fireseller_init(){
 
 // Add menu page
 function wp_fireseller_add_options_page() {
-	add_options_page('WP FireSeller Options Settings', 'WP-FireSeller', 'manage_options', __FILE__, 'wp_fireseller_render_form');
+	add_options_page('WP FireSeller Options Settings', 'WP-FireSeller', 'manage_options', __FILE__, 'wp_fireseller_fireseller_options');
 }
 
 
 // Sart Plugin Options Page
 // Render the Plugin options form
-function wp_fireseller_render_form() {
+function wp_fireseller_fireseller_options() {
 	?>
 	<div class="wrap">
 		<!-- Display Plugin Icon, Header, and Description -->
@@ -86,7 +86,7 @@ function wp_fireseller_render_form() {
 		<tr>
 		  <td><div class="icon32" id="icon-options-general"></div><h2><?php _e('WP FireSeller Options Settings', 'wp_fireseller'); ?> 
 		  </h2></td>
-		  <td width="49%" align="right"><h2>Version : <?php echo WPFIRESELLER_VERSION; ?>  Developed by: <a href="http://fireflytechnologies.com/">FireFlyTechnology.Com</a></h2></td>
+		  <td width="49%" align="right"><h2>Version : <?php echo WPFIRESELLER_VERSION; ?>  Developed by:<a href="http://calicotek.com/">calicotek.Com</a></h2></td>
 		</tr>
 	  </table><hr />
 	  <!-- Start Donation Plugin Info Heml -->
@@ -155,8 +155,8 @@ function wp_fireseller_render_form() {
 			</p>
 				</form>
 			  </td><td width="200px" align"center"><p>Version 			  
-			 <?php echo WPFIRESELLER_VERSION; ?>  by FireFly Technologies</p> <hr/>Like this Plugin? Please <a href="http://fireflytechnologies.com/donate">Donate!</a><hr/>
-				Help its Creator Create more great plugins and Updates<a href="http://fireflytechnologies.com/donate">Donate Now!</a><hr />Need Help or Installition Instructions?... <a href="http://fireflytechnologies.com/donate">Try here</a>
+			 <?php echo WPFIRESELLER_VERSION; ?>  by CaliCoTek</p> <hr/>Like this Plugin? Please <a href="http://calicotek.com/donate">Donate!</a><hr/>
+				Help its Creator Create more great plugins and Updates<a href="http://calicotek.com/donate">Donate Now!</a><hr />Need Help or Installition Instructions?... <a href="http://calicotek.com/donate">Try here</a>
 			  <hr/>Other Great Plugins<br> by CaliCoTek
 			  <ul>
 				<li>CaliCoTek Floating Social Slider</li>
@@ -219,23 +219,22 @@ function wp_fireseller_widget_function() {
 
 <!-- Start Widget  top buttons Output-->
 <center>
-  <table>
+ 
     <div class="cct_widget_menu">
-      <td><a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="40px" width="40px" title="Open MyEbay in New Window" /></a></td>
-      <td><a href="http://my.ebay.com/ws/eBayISAPI.dll?MyEbay&gbh=1&CurrentPage=MyeBayAllSelling" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/selling-manager.gif" height="40px" width="40px" title="Open MyEbay Advanced Selling Manager" /></a></td>
-	  <td><a href="http://cgi6.ebay.com/ws/eBayISAPI.dll?SellerDashboard" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/dashboard-icon.gif" height="40px" width="40px" title="MyEbay Seller Dashboard" /></a></td>
-
-	  <td><a href="http://www2.ebay.com/aw/announce.xml" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/money_sign.jpg" height="40px" width="40px" title="Lessons" /></a></td>
-      <td><a href="http://mesgmy.ebay.com/ws/eBayISAPI.dll?ViewMyMessages" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/messages.gif" height="40px" width="40px" title="My Messages from Ebay" /></a></td>
-      <td><a href="http://mystore.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="40px" width="40px" title="My Store" /></a></td>
+      <a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="20px" width="20px" title="Open MyEbay in New Window" /></a>
+      <a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="20px" width="20px" title="Open MyEbay in New Window" /></a>
+      <a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="20px" width="20px" title="Open MyEbay in New Window" /></a>
+      <a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="20px" width="20px" title="Open MyEbay in New Window" /></a>
+      <a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="20px" width="20px" title="Open MyEbay in New Window" /></a>
+      <a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="20px" width="20px" title="Open MyEbay in New Window" /></a>
+      <a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="20px" width="20px" title="Open MyEbay in New Window" /></a>
+      <a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="20px" width="20px" title="Open MyEbay in New Window" /></a>
+      <a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="20px" width="20px" title="Open MyEbay in New Window" /></a>
+      <a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="20px" width="20px" title="Open MyEbay in New Window" /></a>
     </div>
-  </table>
+
 </center>
 
-  <div class="cct_widget">
-	<center>
-	  <a href="http://announcements.ebay.com/" target="_blank"><font size="+1"><b><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/down-arrow.png" height="30px" width="30px">Ebay Announcements<img src="<?php echo plugins_url(); ?>/wp-fireseller/images/down-arrow.png" height="30px" width="30px"></b></font></a>
-	</center></div>
 	
   <!-- Start Widget Scroller feed Output -->
   <div class="scroller">
@@ -252,8 +251,6 @@ function wp_fireseller_widget_function() {
 	
 	  <!-- Start Widget bottom buttons Output-->
   
-	  Plugin  by: <a href="http://fireflytechnology.com">fireflytechnology.Com</a> <br/> <a href="http://fireflytechnology.Com/donate">Donate</a> | <a href="http://fireflytechnology.Com/fireseller-pro/">Purchase Pro Version</a>   
-
 <?php
 									 											
 }
@@ -305,14 +302,120 @@ add_action('wp_dashboard_setup', 'add_dashboard_widgets' );
 
 // Start admin Menu and Page Install code.
 // add admin menu function to system for the menu
-function register_wp_fireseller_dash_menu_page(){ // Register the dash menu and page function the number 3 is the menu position system higher numbers move it down the list
+function register_wp_fireseller_pages(){ // Register the dash menu and page function the number 3 is the menu position system higher numbers move it down the list
     add_menu_page( 'WP Fire Seller', 'WP-FireSeller', 'manage_options', 'wp_fireseller_page', 'wp_fireseller_menu_page', plugins_url( 'wp-fireseller/images/fire_seller_icon.png' )); 
+    add_submenu_page( 'wp_fireseller_page', 'FireSeller Settings Page', 'Settings', 'manage_options','wp_fireseller_fireseller_options','wp_fireseller_fireseller_options');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
+    add_submenu_page( 'wp_fireseller_page', 'FireSeller Ebay Page', 'Ebay Tools', 'manage_options', 'wp_fireseller_ebay_page', 'wp_fireseller_ebay_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
+    add_submenu_page( 'wp_fireseller_page', 'FireSeller Amazon Page', 'Amazon Tools', 'manage_options', 'wp_fireseller_amazon_page', 'wp_fireseller_amazon_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
+    add_submenu_page( 'wp_fireseller_page', 'FireSeller Etsy Page', 'Etsy Tools', 'manage_options', 'wp_fireseller_etsy_page', 'wp_fireseller_etsy_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
+    add_submenu_page( 'wp_fireseller_page', 'FireSeller Twitter Page', 'Twitter Tools', 'manage_options', 'wp_fireseller_twitter_page', 'wp_fireseller_twitter_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
+    add_submenu_page( 'wp_fireseller_page', 'FireSeller Facebook Page', 'Facebook Tools', 'manage_options', 'wp_fireseller_facebook_page', 'wp_fireseller_facebook_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
+    add_submenu_page( 'wp_fireseller_page', 'FireSeller Pinterest Page', 'Pinterest Tools', 'manage_options', 'wp_fireseller_pinterest_page', 'wp_fireseller_pinterest_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
+    add_submenu_page( 'wp_fireseller_page', 'FireSeller linkdin Page', 'Lindin Tools', 'manage_options', 'wp_fireseller_linkdin_page', 'wp_fireseller_linkdin_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
+    add_submenu_page( 'wp_fireseller_page', 'FireSeller craigslist Page', 'Craigslist Tools', 'manage_options', 'wp_fireseller_craigslist_page', 'wp_fireseller_craigslist_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
 }
-// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
-function wp_fireseller_menu_page(){
-    require_once( 'dashpage.php' );	
-}
+
+function wp_fireseller_menu_page(){ require_once( 'pages/fireseller-page.php' );	}
+function wp_fireseller_ebay_page(){ require_once( 'pages/ebay-page.php' );	}
+function wp_fireseller_amazon_page(){ require_once( 'pages/amazon-page.php' );	}
+function wp_fireseller_etsy_page(){ require_once( 'pages/etsy-page.php' );	}
+function wp_fireseller_pinterest_page(){ require_once( 'pages/pinterest-page.php' );	}
+function wp_fireseller_facebook_page(){ require_once( 'pages/facebook-page.php' );	}
+function wp_fireseller_twitter_page(){ require_once( 'pages/twitter-page.php' );	}
+function wp_fireseller_linkdin_page(){ require_once( 'pages/linkdin-page.php' );	}
+function wp_fireseller_craigslist_page(){ require_once( 'pages/craigslist-page.php' );	}
 // End admin Menu and Page Install code
+
   
+
+add_action('admin_bar_menu', 'fireseller_add_tool_bar_items', 100);
+function fireseller_add_tool_bar_items($admin_bar)
+{
+	$admin_bar->add_menu( array(
+		'id'    => 'fireseller',
+		'title' => 'FireSeller',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('FireSeller'),			
+		),
+	));
+	$admin_bar->add_menu( array(
+		'id'    => 'settings-page',
+		'parent' => 'fireseller',
+		'title' => 'Settings',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Settings'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+	));
+	$admin_bar->add_menu( array(
+		'id'    => 'amazon-tools',
+		'parent' => 'fireseller',
+		'title' => 'Amazon Tools',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Amazon Tools'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+	));
+	$admin_bar->add_menu( array(
+		'id'    => 'craigslist-tools',
+		'parent' => 'fireseller',
+		'title' => 'Craigslist Tools',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Craigslist Tools'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+	));
+	$admin_bar->add_menu( array(
+		'id'    => 'etsy-tools',
+		'parent' => 'fireseller',
+		'title' => 'Etsy Tools',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Etsy Tools'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+	));
+	$admin_bar->add_menu( array(
+		'id'    => 'ebay-tools',
+		'parent' => 'fireseller',
+		'title' => 'Ebay Tools',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Ebay Tools'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+	));
+      $admin_bar->add_menu( array(  // sub menu of ebay
+		'id'    => 'ebay-dashboard-tools',
+		'parent' => 'ebay-tools',
+		'title' => 'Ebay Dashboard',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Ebay Tools'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+	));
+      $admin_bar->add_menu( array(  // sub menu of ebay
+		'id'    => 'ebay-goto',
+		'parent' => 'ebay-tools',
+		'title' => 'GoTo My Ebay',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('GoTo My Ebay'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+	));
+}
   
 ?>

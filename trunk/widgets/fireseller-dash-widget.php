@@ -22,24 +22,10 @@ function wp_fireseller_widget_function() {
 ?>
 
 <!-- Start Widget  top buttons Output-->
-<center>
-  <table>
-    <div class="cct_widget_menu">
-      <td><a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="40px" width="40px" title="Open MyEbay in New Window" /></a></td>
-      <td><a href="http://my.ebay.com/ws/eBayISAPI.dll?MyEbay&gbh=1&CurrentPage=MyeBayAllSelling" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/selling-manager.gif" height="40px" width="40px" title="Open MyEbay Advanced Selling Manager" /></a></td>
-	  <td><a href="http://cgi6.ebay.com/ws/eBayISAPI.dll?SellerDashboard" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/dashboard-icon.gif" height="40px" width="40px" title="MyEbay Seller Dashboard" /></a></td>
 
-	  <td><a href="http://www2.ebay.com/aw/announce.xml" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/money_sign.jpg" height="40px" width="40px" title="Lessons" /></a></td>
-      <td><a href="http://mesgmy.ebay.com/ws/eBayISAPI.dll?ViewMyMessages" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/messages.gif" height="40px" width="40px" title="My Messages from Ebay" /></a></td>
-      <td><a href="http://mystore.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="40px" width="40px" title="My Store" /></a></td>
-    </div>
-  </table>
-</center>
-
-  <div class="cct_widget">
-	<center>
-	  <a href="http://announcements.ebay.com/" target="_blank"><font size="+1"><b><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/down-arrow.png" height="30px" width="30px">Ebay Announcements<img src="<?php echo plugins_url(); ?>/wp-fireseller/images/down-arrow.png" height="30px" width="30px"></b></font></a>
-	</center></div>
+    <div class="cct_widget_menu" align=center>
+      <a href="http://my.ebay.com/" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/my-ebay-selling.gif" height="20px" width="20px" title="Open MyEbay in New Window" /></a>
+      </div>
 	
   <!-- Start Widget Scroller feed Output -->
   <div class="scroller">
@@ -54,10 +40,6 @@ function wp_fireseller_widget_function() {
 	</ul>
   </div>
 	
-	  <!-- Start Widget bottom buttons Output-->
-  
-	  Plugin  by: <a href="http://fireflytechnology.com">fireflytechnology.Com</a> <br/> <a href="http://fireflytechnology.Com/donate">Donate</a> | <a href="http://fireflytechnology.Com/fireseller-pro/">Purchase Pro Version</a>   
-
 <?php
 									 											
 }

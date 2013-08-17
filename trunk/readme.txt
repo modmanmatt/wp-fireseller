@@ -4,7 +4,7 @@ Donate link: http://calicotek.com/donate
 Tags: wp-fireseller, CaliCoTek, fireseller, fire seller, cct-fireseller, calicotek.com, CaliCoTek, calicotek, amazon, etsy, facebook, twitter, social feed, api, integration, ecommerce, e-commerce Rss, Ebay Sellers, Selling Tools, Auction Management, wordpress ebay.
 Requires at least: 3.3
 Tested up to: 3.6
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,16 @@ No issues or errors Reported yet.
 
 == Changelog ==
 
+= 1.1.0 =
+* removed fireseller widget icons pertaining to ebay and moved them to ebay widget.
+* updated fireseller options page updated feed url to calicotek news.
+* Added Sub Menu links.
+* Added Sub Menu Pages.
+* Changed index filename to fireseller.php.
+* Added Admin Toolbar Menu.
+* updated links.
+* fixed some typos.
+* Added Individual dash pages for all connections.
 = 1.0.9 =
 * Updated info for calicotek and removed firefly associations
 * Updated Ebay Dash widget
