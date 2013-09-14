@@ -5,13 +5,18 @@
   
    <table>
 	 <tr>
+	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Fireseller Tools"/></a></td>
 	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Ebay Tools"/></a></td>
-	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Ebay Tools"/></a></td>
-	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Ebay Tools"/></a></td>
-	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Ebay Tools"/></a></td>
-	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Ebay Tools"/></a></td>
-	   <td><a href="admin.php?page=wp_fireseller_ebay_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Ebay Tools"/></a></td>
- 	 </tr>
+	   <td><a href="admin.php?page=wp_fireseller_amazon_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Amazon Tools"/></a></td>
+	   <td><a href="admin.php?page=wp_fireseller_etsy_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Etsy Tools"/></a></td>
+	   <td><a href="admin.php?page=wp_fireseller_facebook_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Facebook Tools"/></a></td>
+	   <td><a href="admin.php?page=wp_fireseller_twitter_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Twitter Tools"/></a></td>
+	   <td><a href="admin.php?page=wp_fireseller_linkedin_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Linkedin Tools"/></a></td>
+	   <td><a href="admin.php?page=wp_fireseller_pinterest_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Pinterest Tools"/></a></td>
+	   <td><a href="admin.php?page=wp_fireseller_friendfeed_page"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="Pinterest Tools"/></a></td>
+	   <td><a href="admin.php?page=wp_fireseller_fireseller_options"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/icon-ebay.png" height="30px" align="right" alt="FireSeller Plugin Settings"/></a></td>
+
+	 </tr>
    </table>
   <hr />
   <table><tr>
@@ -36,7 +41,9 @@
 		  <tr><td style="background-color:#FFFFFF;"><a href="http://FireFlyTechnologies.com/download/VIP%20Downloads/BayGenie%20eBay%20Auction%20Sniper%20Pro%20v3.3.6.1%20+%20Crack---PMS/BayGenie%20eBay%20Auction%20Sniper%20Pro%20v3.3.6.1%20+%20Crack---PMS%20-%20Zipped.tgz" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/eabysniper3.jpg" height="30px" width="30px" title="Ebay Auction Sniper Tools" align="left" /> Ebay Auction Sniper Tools</a> - Make Last Bid PC App</td></tr>
 	      <tr><td><a href="http://FireFlyTechnologies.com/download/setupUS.exe" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/turbo-lister.png" height="30px" width="30px" title="Ebay Turbo Lister Download"align="left"  /> Ebay Turbo Lister Download</a></td></tr>
 		  <tr><td style="background-color:#FFFFFF;"><a href="<?php echo plugins_url(); ?>/wp-fireseller/includes/goodies/eBay_Millionaire_Secrets/eBay_Millionaire_Secrets.pdf" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/topsecret.png" height="30px" width="30px" title="Ebay Millionair Secrets Guide" align="left" /> Ebay Millionair Secrets</a> - Opens A PDF Guide With Tips And Secrets</td></tr>	          
-          <tr><td><a href="https://play.google.com/store/apps/details?id=com.ebay.mobile" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/ebay-droid.png" alt="Download Link" width="26" height="26" align="left" />Ebay Android App</a> - Connect your Android Phone to your Ebay Account</td>
+          <tr><td style="background-color:#FFFFFF;"><a href="<?php echo plugins_url(); ?>/wp-fireseller/includes/goodies/How to make money online with Ebay, Yahoo and Google.pdf" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/topsecret.png" height="30px" width="30px" title="How to make money - Ebay,Yahoo,Google." align="left" /> How to make money online</a> - Ebay,Yahoo,Google.</td></tr>	         
+          <tr><td style="background-color:#FFFFFF;"><a href="http://calicotek.com/download/fireseller/eBay.Hot.Item.Finder.v2/eBay.Hot.Item.Finder.v2/eBay.Hot.Item.Finder.v2%20-%20files.exe" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/eabysniper3.jpg" height="30px" width="30px" title="Ebay Hot Item Finder" align="left" /> Ebay Hot Item Finder v2</a> - Scan to find the best keywords for your products to increase your sales</td></tr>
+		  <tr><td><a href="https://play.google.com/store/apps/details?id=com.ebay.mobile" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/ebay-droid.png" alt="Download Link" width="26" height="26" align="left" />Ebay Android App</a> - Connect your Android Phone to your Ebay Account</td>
 	      <tr><td style="background-color:#FFFFFF;"><a href="https://play.google.com/store/apps/details?id=com.ebay.mobile.appwidget" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/android-widget.png" alt="Download Link" width="26" height="26" align="left" />Ebay Android Widget</a> - Display Your Ebay Stuff On your Android Desktop</td>
           <tr><td><a href="https://play.google.com/store/apps/details?id=com.paypal.android.p2pmobile" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/Download-icon.png" alt="Download Link" width="26" height="26" align="left" />Paypal Android App</a> - Access Paypal Account, Send &amp; Receive Money</td>
 		  <tr><td style="background-color:#FFFFFF;"><a href="http://dl.google.com/picasa/picasa39-setup.exe" target="_blank"><img src="<?php echo plugins_url(); ?>/wp-fireseller/images/picasa.png" alt="Download Link" width="26" height="26" align="left" />Picasa Picture Software v3</a> - Edit, Resize, Add Borders &amp; Crop Pics.. in Bulk</td>
@@ -48,7 +55,7 @@
 	<td Width=99%>
 	  <div class="widget" style="width:99%; height:300px; "> 
 	    <h2 align="center" style="background-color:#FFFF99;"><strong>FireSeller Notifications</strong></h2>
-        <iframe style="background-color:#FFFFCC;" src="http://rss.bloople.net/?url=http%3A%2F%2Fannouncements.ebay.com%2Ffeed%2F&amp;showtitle=false&amp;type=html" width="100%" height="250px"></iframe>
+		<iframe style="background-color:#FFFFCC;" src="http://rss.bloople.net/?url=http%3A%2F%2Fannouncements.ebay.com/%2Ffeed%2F&amp;showtitle=false&amp;type=html" width="100%" height="250px"></iframe>
       </div>
     </td>
 

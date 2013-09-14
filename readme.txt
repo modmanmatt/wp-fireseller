@@ -3,8 +3,8 @@ Contributors: http://calicotek.com, http://calicotek.com/fireseller, http://wp-f
 Donate link: http://calicotek.com/donate
 Tags: wp-fireseller, CaliCoTek, fireseller, fire seller, cct-fireseller, calicotek.com, CaliCoTek, calicotek, amazon, etsy, facebook, twitter, social feed, api, integration, ecommerce, e-commerce Rss, Ebay Sellers, Selling Tools, Auction Management, wordpress ebay.
 Requires at least: 3.3
-Tested up to: 3.6
-Stable tag: 1.1.0
+Tested up to: 3.6.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,7 +46,7 @@ As soon as we get a free version with some nice features and working we will sta
 
 1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. You can edit the setting on the Options Page Located in CCT EBAY Dash Widget Under Settings Tab of your Wordpress Admin Dashboard and configure wich options you would like to appear in the widget...
+3. You can edit the setting on the Options Page Located in FireSeller Settings page Under Settings Tab of your Wordpress Admin Dashboard and configure wich options you would like to appear in the widget...
 4. All Done :)
 
 == Frequently asked questions ==
@@ -63,6 +63,24 @@ No issues or errors Reported yet.
 
 == Changelog ==
 
+= 1.1.2 =
+* updated individual tools pages.
+* Added Scalable widgets to tolls pages.
+* Fixed Links for tools pages Sub.
+* Added images to tools pages sub menu.
+* updated ebay tools downloads.
+* added new ebay guide to ebay tools downloads.
+* added new download link and tool for ebay keyword tools.
+* Fixed Version Output error and definition for all pages to call.
+= 1.1.1 =
+* Added Linkedin Widget base code and news feed.
+* Added Linkedin tools button to admin Tool bar.
+* Added FaceBook tools button to admin tool bar.
+* Added Twitter tools button to admin tool bar.
+* Reorganized Menu Buttons for admi tool bar in order of importance.
+* Added Craigslist Dash Widget.
+* Added Pinterest Dash Widget.
+* Added Facebook Dash Widget.
 = 1.1.0 =
 * removed fireseller widget icons pertaining to ebay and moved them to ebay widget.
 * updated fireseller options page updated feed url to calicotek news.
