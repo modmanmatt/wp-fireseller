@@ -3,7 +3,7 @@
 Plugin Name: WP-FireSeller
 Plugin URI: http://calicotek.com/wp-fireseller
 Description: This plugin Adds an Ecommerce Multi Platform Product Feed and Management System... Sell on all ecommerce auction and social selling platforms all from 1 place your wp site :) This is a beta.
-Version: 1.1.0
+Version: 1.1.2
 Author: calicotek, calicotek.com
 Author URI: http://calicotek.com/
 License: GPLv2 or later
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 // Version Definition should be same as above
-define('WPFIRESELLER_VERSION', '1.1.0' );
+define('WP_FIRESELLER_VERSION', '1.1.2' );
 
 // For debugging purposes
 //error_reporting(E_ALL);
@@ -51,10 +51,47 @@ function wp_fireseller_add_defaults() {
 	if(($tmp['chk_default_options_db']=='1')||(!is_array($tmp))) {
 		delete_option('wp_fireseller_options'); // so we don't have to reset all the 'off' checkboxes too! (don't think this is needed but leave for now)
 		$arr = array(
-			'widget_title' => __('WP FireSeller Tools', 'wp_fireseller'),
-			'feed_url' => 'http://calicotek.com/category/calicotek_news_feed/calicotek_members_news_feed/feed/',
+		    'widget_title' => __('WP FireSeller Tools', 'wp_fireseller'),
+			'fireseller_url' => 'http://calicotek.com/category/calicotek_news_feed/calicotek_members_news_feed/feed/',
 			'drp_select_box' => '5',
-			'chk_default_options_db' => ''
+		  
+			'fireseller_widget_title' => __('WP FireSeller Tools', 'wp_fireseller'),
+			'fireseller_url' => 'http://calicotek.com/category/calicotek_news_feed/calicotek_members_news_feed/feed/',
+			'fireseller_drp_select_box' => '5',
+		  
+			'ebay_widget_title' => __('WP FireSeller Tools', 'wp_fireseller_ebay'),
+			'ebay_url' => 'http://calicotek.com/category/calicotek_news_feed/calicotek_members_news_feed/feed/',
+			'ebay_drp_select_box' => '5',
+		  
+		    'amazon_widget_title' => __('WP FireSeller Tools', 'wp_fireseller_a'),
+			'amazon_url' => 'http://calicotek.com/category/calicotek_news_feed/calicotek_members_news_feed/feed/',
+			'amazon_drp_select_box' => '5',
+		  
+		    'etsy_widget_title' => __('WP FireSeller Tools', 'wp_fireseller'),
+			'etsy_url' => 'http://calicotek.com/category/calicotek_news_feed/calicotek_members_news_feed/feed/',
+			'etsy_drp_select_box' => '5',
+		    
+		    'craigslist_widget_title' => __('WP FireSeller Tools', 'wp_fireseller'),
+			'craigslist_url' => 'http://calicotek.com/category/calicotek_news_feed/calicotek_members_news_feed/feed/',
+			'craigslist_drp_select_box' => '5',
+		  
+		    'facebook_widget_title' => __('WP FireSeller Tools', 'wp_fireseller'),
+			'facebook_url' => 'http://calicotek.com/category/calicotek_news_feed/calicotek_members_news_feed/feed/',
+			'facebook_drp_select_box' => '5',
+		  
+		    'twitter_widget_title' => __('WP FireSeller Tools', 'wp_fireseller'),
+			'twitter_url' => 'http://calicotek.com/category/calicotek_news_feed/calicotek_members_news_feed/feed/',
+			'twitter_drp_select_box' => '5',
+		   
+		    'linkedin_widget_title' => __('WP FireSeller Tools', 'wp_fireseller'),
+			'linkedin_url' => 'http://calicotek.com/category/calicotek_news_feed/calicotek_members_news_feed/feed/',
+			'linkedin_drp_select_box' => '5',
+		  
+		    'pinterest_widget_title' => __('WP FireSeller Tools', 'wp_fireseller'),
+			'pinterest_url' => 'http://calicotek.com/category/calicotek_news_feed/calicotek_members_news_feed/feed/',
+			'pinterest_drp_select_box' => '5',
+		  
+		   'chk_default_options_db' => ''
 		);
 		update_option('wp_fireseller_options', $arr);
 	}
@@ -73,105 +110,31 @@ function wp_fireseller_init(){
 // Add menu page
 function wp_fireseller_add_options_page() {
 	add_options_page('WP FireSeller Options Settings', 'WP-FireSeller', 'manage_options', __FILE__, 'wp_fireseller_fireseller_options');
+	add_options_page('WP FireSeller Options Settings', 'WP-FireSeller', 'manage_options', __FILE__, 'wp_fireseller_ebay_options');
+	add_options_page('WP FireSeller Options Settings', 'WP-FireSeller', 'manage_options', __FILE__, 'wp_fireseller_amazon_options');
+	add_options_page('WP FireSeller Options Settings', 'WP-FireSeller', 'manage_options', __FILE__, 'wp_fireseller_etsy_options');
+	add_options_page('WP FireSeller Options Settings', 'WP-FireSeller', 'manage_options', __FILE__, 'wp_fireseller_craigslist_options');
+	add_options_page('WP FireSeller Options Settings', 'WP-FireSeller', 'manage_options', __FILE__, 'wp_fireseller_facebook_options');
+	add_options_page('WP FireSeller Options Settings', 'WP-FireSeller', 'manage_options', __FILE__, 'wp_fireseller_twitter_options');
+	add_options_page('WP FireSeller Options Settings', 'WP-FireSeller', 'manage_options', __FILE__, 'wp_fireseller_linkedin_options');
+	add_options_page('WP FireSeller Options Settings', 'WP-FireSeller', 'manage_options', __FILE__, 'wp_fireseller_pinterest_options');
 }
 
 
 // Sart Plugin Options Page
 // Render the Plugin options form
-function wp_fireseller_fireseller_options() {
-	?>
-	<div class="wrap">
-		<!-- Display Plugin Icon, Header, and Description -->
-	  <table style="width:100%;">
-		<tr>
-		  <td><div class="icon32" id="icon-options-general"></div><h2><?php _e('WP FireSeller Options Settings', 'wp_fireseller'); ?> 
-		  </h2></td>
-		  <td width="49%" align="right"><h2>Version : <?php echo WPFIRESELLER_VERSION; ?>  Developed by:<a href="http://calicotek.com/">calicotek.Com</a></h2></td>
-		</tr>
-	  </table><hr />
-	  <!-- Start Donation Plugin Info Heml -->
-	  <table class="table_settings_page" style="width:100%;border:1;  ">
-			<tr>
-			  <td style="background-color:#FFFF99;" Align="center">		  
-			  
-		   
-		    <!-- End Donation Plugin Info Heml -->
-	  <b><i>Tip: </i></b><?php _e('Below you can adjust the output of the Dashboard Widget. You can change the title of the widget, the feed URL and the amount of feed items to show.', 'wp_fireseller'); ?>
+function wp_fireseller_fireseller_options() { require "options/fireseller-options.php"; }
+function wp_fireseller_ebay_options() { require "options/ebay-options.php"; }
+function wp_fireseller_amazon_options() { require "options/amazon-options.php"; }
+function wp_fireseller_etsy_options() { require "options/etsy-options.php"; }
+function wp_fireseller_criagslist_options() { require "options/craigslist-options.php"; }
+function wp_fireseller_facebook_options() { require "options/facebook-options.php"; }
+function wp_fireseller_twitter_options() { require "options/twitter-options.php"; }
+function wp_fireseller_linkedin_options() { require "options/linkedin-options.php"; }
+function wp_fireseller_pinterest_options() { require "options/pinterest-options.php"; }	
 
-		<!-- Beginning of the Plugin Options Form -->
-		<form method="post" action="options.php">
-			<?php settings_fields('wp_fireseller_plugin_options'); ?>
-			<?php $options = get_option('wp_fireseller_options'); ?>
 
-		  
-			<!-- Table Structure Containing Form Controls -->
-			<!-- Each Plugin Option Defined on a New Table Row -->
-		  <table  style="color:#666666;margin-left:2px;width:100%;">
 
-				<!-- Textbox Control -->
-				<tr>
-					<th scope="row"><?php _e('Widget Title', 'wp_fireseller'); ?></th>
-					<td>
-						<input type="text" size="30" name="wp_fireseller_options[widget_title]" value="<?php echo $options['widget_title']; ?>" />
-						<span style="color:#666666;margin-left:2px;"><?php _e('Change the title of the WP FireSeller Dash Widget into something of your liking', 'wp_fireseller'); ?></span>
-					</td>
-				</tr>
-
-				<!-- Textbox Control -->
-				<tr>
-					<th scope="row"><?php _e('Feed URL', 'wp_fireseller'); ?></th>
-					<td>
-						<input type="text" size="30" name="wp_fireseller_options[feed_url]" value="<?php echo $options['feed_url']; ?>" />
-						<span style="color:#666666;margin-left:2px;"><?php _e('This is to Ebay Announcements feed by Default ... if you need to Change the feed-URL you may do so here', 'wp_fireseller'); ?></span>
-					</td>
-				</tr>
-
-				<!-- Select Drop-Down Control -->
-				<tr>
-					<th scope="row"><?php _e('Feed Item Amount?', 'wp_fireseller'); ?></th>
-					<td>
-						<select name='wp_fireseller_options[drp_select_box]'>
-							<option value='1' <?php selected('1', $options['drp_select_box']); ?>>1</option>
-							<option value='2' <?php selected('2', $options['drp_select_box']); ?>>2</option>
-							<option value='3' <?php selected('3', $options['drp_select_box']); ?>>3</option>
-							<option value='4' <?php selected('4', $options['drp_select_box']); ?>>4</option>
-							<option value='5' <?php selected('5', $options['drp_select_box']); ?>>5</option>
-							<option value='7' <?php selected('7', $options['drp_select_box']); ?>>7</option>
-							<option value='10' <?php selected('10', $options['drp_select_box']); ?>>10</option>
-						</select>
-						<span style="color:#666666;margin-left:2px;"><?php _e('How many feed items to show in the widget?', 'wp_fireseller'); ?></span>
-					</td>
-				</tr>
-				<tr valign="top" style="border-top:#dddddd 1px solid;">
-					<th scope="row"><?php _e('Database Options', 'wp_fireseller'); ?></th>
-					<td>
-						<label><input name="wp_fireseller_options[chk_default_options_db]" type="checkbox" value="1" <?php if (isset($options['chk_default_options_db'])) { checked('1', $options['chk_default_options_db']); } ?> /> <?php _e('Restore defaults upon plugin deactivation/reactivation', 'wp_fireseller'); ?></label>
-					  <br /><span style="color:#666666;margin-left:2px;"><?php _e('Only check this if you want to reset plugin settings upon Plugin reactivation', 'wp_fireseller'); ?></span>
-					</td>
-				</tr>
-			</table>
-			<p class="submit">
-			<input type="submit" class="button-primary" value="<?php _e('Save Settings', 'wp_fireseller') ?>" />
-			</p>
-				</form>
-			  </td><td width="200px" align"center"><p>Version 			  
-			 <?php echo WPFIRESELLER_VERSION; ?>  by CaliCoTek</p> <hr/>Like this Plugin? Please <a href="http://calicotek.com/donate">Donate!</a><hr/>
-				Help its Creator Create more great plugins and Updates<a href="http://calicotek.com/donate">Donate Now!</a><hr />Need Help or Installition Instructions?... <a href="http://calicotek.com/donate">Try here</a>
-			  <hr/>Other Great Plugins<br> by CaliCoTek
-			  <ul>
-				<li>CaliCoTek Floating Social Slider</li>
-				<li>Calicotek Membership Dashboard</li>
-			  </ul>
-			  </td>
-			
-			  </tr>
-		  </table>
-
-	  
-<!-- End Plugin Options Page -->
-
-<?php
-}
 
 // Sanitize and validate input. Accepts an array, return a sanitized array.
 function wp_fireseller_validate_options($input) {
@@ -281,8 +244,9 @@ function amazon_dashboard_widget_function() { require "widgets/amazon-dash-widge
 function etsy_dashboard_widget_function() {	require "widgets/etsy-dash-widget.php";  }
 function facebook_dashboard_widget_function() {	require "widgets/facebook-dash-widget.php";  }
 function twitter_dashboard_widget_function() { require "widgets/twitter-dash-widget.php"; }
-function linkdin_dashboard_widget_function() { require "widgets/linkdin-dash-widget.php"; }
+function linkedin_dashboard_widget_function() { require "widgets/linkedin-dash-widget.php"; }
 function pinterest_dashboard_widget_function() { require "widgets/pinterest-dash-widget.php"; }
+function craigslist_dashboard_widget_function() { require "widgets/craigslist-dash-widget.php"; }
 
 // Function used in the action hook
 function add_dashboard_widgets() {
@@ -292,8 +256,9 @@ function add_dashboard_widgets() {
 	wp_add_dashboard_widget('etsy_dashboard_widget', 'Etsy FireSeller Widget', 'etsy_dashboard_widget_function');
 	wp_add_dashboard_widget('facebook_dashboard_widget', 'Facebook FireSeller Widget', 'facebook_dashboard_widget_function');
   	wp_add_dashboard_widget('twitter_dashboard_widget', 'Twitter FireSeller Widget', 'twitter_dashboard_widget_function');
-  	wp_add_dashboard_widget('linkdin_dashboard_widget', 'Linkdin FireSeller Widget', 'linkdin_dashboard_widget_function');
+  	wp_add_dashboard_widget('linkedin_dashboard_widget', 'Linkedin FireSeller Widget', 'linkedin_dashboard_widget_function');
   	wp_add_dashboard_widget('pinterest_dashboard_widget', 'Pinterest FireSeller Widget', 'pinterest_dashboard_widget_function');
+    wp_add_dashboard_widget('craigslist_dashboard_widget', 'Craigslist FireSeller Widget', 'craigslist_dashboard_widget_function');
 }
 
 // Register the new dashboard widget with the 'wp_dashboard_setup' action
@@ -311,19 +276,19 @@ function register_wp_fireseller_pages(){ // Register the dash menu and page func
     add_submenu_page( 'wp_fireseller_page', 'FireSeller Twitter Page', 'Twitter Tools', 'manage_options', 'wp_fireseller_twitter_page', 'wp_fireseller_twitter_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
     add_submenu_page( 'wp_fireseller_page', 'FireSeller Facebook Page', 'Facebook Tools', 'manage_options', 'wp_fireseller_facebook_page', 'wp_fireseller_facebook_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
     add_submenu_page( 'wp_fireseller_page', 'FireSeller Pinterest Page', 'Pinterest Tools', 'manage_options', 'wp_fireseller_pinterest_page', 'wp_fireseller_pinterest_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
-    add_submenu_page( 'wp_fireseller_page', 'FireSeller linkdin Page', 'Lindin Tools', 'manage_options', 'wp_fireseller_linkdin_page', 'wp_fireseller_linkdin_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
+    add_submenu_page( 'wp_fireseller_page', 'FireSeller linkedin Page', 'Linkedin Tools', 'manage_options', 'wp_fireseller_linkedin_page', 'wp_fireseller_linkedin_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
     add_submenu_page( 'wp_fireseller_page', 'FireSeller craigslist Page', 'Craigslist Tools', 'manage_options', 'wp_fireseller_craigslist_page', 'wp_fireseller_craigslist_menu_page');// retreive the dashboard page code from dashpage.php and display the page when the menu button is clicked
 }
 
 function wp_fireseller_menu_page(){ require_once( 'pages/fireseller-page.php' );	}
-function wp_fireseller_ebay_page(){ require_once( 'pages/ebay-page.php' );	}
-function wp_fireseller_amazon_page(){ require_once( 'pages/amazon-page.php' );	}
-function wp_fireseller_etsy_page(){ require_once( 'pages/etsy-page.php' );	}
-function wp_fireseller_pinterest_page(){ require_once( 'pages/pinterest-page.php' );	}
-function wp_fireseller_facebook_page(){ require_once( 'pages/facebook-page.php' );	}
-function wp_fireseller_twitter_page(){ require_once( 'pages/twitter-page.php' );	}
-function wp_fireseller_linkdin_page(){ require_once( 'pages/linkdin-page.php' );	}
-function wp_fireseller_craigslist_page(){ require_once( 'pages/craigslist-page.php' );	}
+function wp_fireseller_ebay_menu_page(){ require_once( 'pages/ebay-page.php' );	}
+function wp_fireseller_amazon_menu_page(){ require_once( 'pages/amazon-page.php' );	}
+function wp_fireseller_etsy_menu_page(){ require_once( 'pages/etsy-page.php' );	}
+function wp_fireseller_pinterest_menu_page(){ require_once( 'pages/pinterest-page.php' );	}
+function wp_fireseller_facebook_menu_page(){ require_once( 'pages/facebook-page.php' );	}
+function wp_fireseller_twitter_menu_page(){ require_once( 'pages/twitter-page.php' );	}
+function wp_fireseller_linkedin_menu_page(){ require_once( 'pages/linkedin-page.php' );	}
+function wp_fireseller_craigslist_menu_page(){ require_once( 'pages/craigslist-page.php' );	}
 // End admin Menu and Page Install code
 
   
@@ -331,7 +296,8 @@ function wp_fireseller_craigslist_page(){ require_once( 'pages/craigslist-page.p
 add_action('admin_bar_menu', 'fireseller_add_tool_bar_items', 100);
 function fireseller_add_tool_bar_items($admin_bar)
 {
-	$admin_bar->add_menu( array(
+  
+  $admin_bar->add_menu( array(
 		'id'    => 'fireseller',
 		'title' => 'FireSeller',
 		'href'  => '#',
@@ -339,7 +305,7 @@ function fireseller_add_tool_bar_items($admin_bar)
 			'title' => __('FireSeller'),			
 		),
 	));
-	$admin_bar->add_menu( array(
+	  $admin_bar->add_menu( array(
 		'id'    => 'settings-page',
 		'parent' => 'fireseller',
 		'title' => 'Settings',
@@ -350,40 +316,7 @@ function fireseller_add_tool_bar_items($admin_bar)
 			'class' => 'my_menu_item_class'
 		),
 	));
-	$admin_bar->add_menu( array(
-		'id'    => 'amazon-tools',
-		'parent' => 'fireseller',
-		'title' => 'Amazon Tools',
-		'href'  => '#',
-		'meta'  => array(
-			'title' => __('Amazon Tools'),
-			'target' => '_blank',
-			'class' => 'my_menu_item_class'
-		),
-	));
-	$admin_bar->add_menu( array(
-		'id'    => 'craigslist-tools',
-		'parent' => 'fireseller',
-		'title' => 'Craigslist Tools',
-		'href'  => '#',
-		'meta'  => array(
-			'title' => __('Craigslist Tools'),
-			'target' => '_blank',
-			'class' => 'my_menu_item_class'
-		),
-	));
-	$admin_bar->add_menu( array(
-		'id'    => 'etsy-tools',
-		'parent' => 'fireseller',
-		'title' => 'Etsy Tools',
-		'href'  => '#',
-		'meta'  => array(
-			'title' => __('Etsy Tools'),
-			'target' => '_blank',
-			'class' => 'my_menu_item_class'
-		),
-	));
-	$admin_bar->add_menu( array(
+      $admin_bar->add_menu( array(
 		'id'    => 'ebay-tools',
 		'parent' => 'fireseller',
 		'title' => 'Ebay Tools',
@@ -415,7 +348,84 @@ function fireseller_add_tool_bar_items($admin_bar)
 			'target' => '_blank',
 			'class' => 'my_menu_item_class'
 		),
+	)); // end ebay sub menu
+      $admin_bar->add_menu( array(
+		'id'    => 'amazon-tools',
+		'parent' => 'fireseller',
+		'title' => 'Amazon Tools',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Amazon Tools'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
 	));
+      $admin_bar->add_menu( array(
+		'id'    => 'etsy-tools',
+		'parent' => 'fireseller',
+		'title' => 'Etsy Tools',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Etsy Tools'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+	));
+      $admin_bar->add_menu( array(
+		'id'    => 'craigslist-tools',
+		'parent' => 'fireseller',
+		'title' => 'Craigslist Tools',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Craigslist Tools'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+	));
+      $admin_bar->add_menu( array(
+		'id'    => 'facebook-tools',
+		'parent' => 'fireseller',
+		'title' => 'Facebook Tools',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Facebook Tools'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+	));
+      $admin_bar->add_menu( array(
+		'id'    => 'twitter-tools',
+		'parent' => 'fireseller',
+		'title' => 'Twitter Tools',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Twitter Tools'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+	));
+      $admin_bar->add_menu( array(
+		'id'    => 'linkedin-tools',
+		'parent' => 'fireseller',
+		'title' => 'Linkedin Tools',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Linkedin Tools'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+    ));
+      $admin_bar->add_menu( array(
+		'id'    => 'pinterest-tools',
+		'parent' => 'fireseller',
+		'title' => 'Pinterest Tools',
+		'href'  => '#',
+		'meta'  => array(
+			'title' => __('Pinterest Tools'),
+			'target' => '_blank',
+			'class' => 'my_menu_item_class'
+		),
+	  ));
 }
   
 ?>
